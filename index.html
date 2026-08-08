@@ -9,10 +9,10 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Galaxy Beyond">
 <link rel="manifest" href="manifest.webmanifest">
-<link rel="icon" sizes="192x192" href="icons/alien-192-v208.png">
-<link rel="apple-touch-icon" href="icons/alien-192-v208.png">
+<link rel="icon" sizes="192x192" href="icons/alien-192.png">
+<link rel="apple-touch-icon" href="icons/alien-192.png">
 <!--
-  GALAXY BEYOND  0.20.8
+  GALAXY BEYOND  0.20.9
   MAJOR: traguardo di prodotto (1.0 = demo completa, 2.0 = Unity 3D)
   MINOR: sistema nuovo   PATCH: correzioni e tarature
 -->
@@ -145,13 +145,13 @@
   #rotate h2{font-family:"Bungee",sans-serif;font-size:20px;margin:0 0 6px;}
 
   /* ================================================================
-     HOME 0.20.8 — due layer veri: background pulito + UI HTML/CSS
+     HOME 0.20.9 — due layer veri: background pulito + UI HTML/CSS
      ================================================================ */
   #scrMenu{padding:0;display:none;place-items:stretch;overflow:hidden;background:#0d1520;}
   #scrMenu.on{display:block;}
   #scrMenu::before{
     content:"";position:absolute;inset:0;z-index:0;
-    background-image:url("assets/menu-bg-v208.webp");
+    background-image:url("assets/menu-bg.webp");
     background-size:cover;
     background-position:50% 50%;
     background-repeat:no-repeat;
@@ -259,14 +259,14 @@
 
 
   /* ================================================================
-     UI THEME 0.20.8 — HOME + SOTTOMENU COERENTI
+     UI THEME 0.20.9 — HOME + SOTTOMENU COERENTI
      Solo presentazione: ID, event listener, salvataggi e gameplay invariati.
      ================================================================ */
 
   .screen:not(#scrMenu){
     background:
       linear-gradient(rgba(7,12,18,.88),rgba(7,12,18,.92)),
-      url("assets/menu-bg-v208.webp") center/cover no-repeat;
+      url("assets/menu-bg.webp") center/cover no-repeat;
   }
 
   .screen:not(#scrMenu) .card{
@@ -438,10 +438,10 @@
   }
 
 
-  /* UI THEME 0.20.8 — LIGHT / PLAYFUL */
+  /* UI THEME 0.20.9 — LIGHT / PLAYFUL */
   .screen:not(#scrMenu){
     background:linear-gradient(rgba(31,54,62,.28),rgba(31,54,62,.36)),
-               url("assets/menu-bg-v208.webp") center/cover no-repeat;
+               url("assets/menu-bg.webp") center/cover no-repeat;
   }
   .screen:not(#scrMenu) .card{
     --accent:#8FE51B;
@@ -457,7 +457,7 @@
     content:"";display:block;height:7px;margin:-18px -20px 13px;
     background:var(--accent);border-bottom:3px solid #24313B;
   }
-  #scrShop .card{--accent:#36A9E1} #scrKit .card{--accent:#8755C7}
+  #scrShop .card{--accent:#36A9E1} #scrKit .card{--accent:#8F4FE0}
   #scrInfo .card{--accent:#F3A51B} #scrOpt .card{--accent:#E86A5B}
   #scrStats .card{--accent:#4CC7D9} #scrPause .card{--accent:#8FE51B}
   #scrLvl .card,#scrStory .card{--accent:#FFD447} #scrOver .card{--accent:#EF665B}
@@ -466,7 +466,7 @@
     margin:3px 0;color:#24313B;font-family:"Bungee",system-ui,sans-serif;
     font-size:clamp(23px,5vw,35px);text-shadow:2px 2px 0 rgba(255,255,255,.8);
   }
-  #scrShop .card h1{color:#167EAF} #scrKit .card h1{color:#6F3EB1}
+  #scrShop .card h1{color:#167EAF} #scrKit .card h1{color:#7132B8}
   #scrInfo .card h1{color:#C97900} #scrOpt .card h1{color:#C54E42}
   #scrStats .card h1{color:#168B9C} #scrPause .card h1{color:#568F10}
   .screen:not(#scrMenu) .card .sub{color:#53646D}
@@ -506,13 +506,22 @@
   #lvlCards .uCard{border-left:7px solid #FFD447!important}
   input,textarea,select{background:#FFFDF4!important;color:#24313B!important;border:3px solid #83959C!important;border-radius:7px!important}
   input:focus,textarea:focus,select:focus{border-color:#76B817!important}
-  #btnKit{background:linear-gradient(#9B6BD8,#7545B5)!important;color:#fff!important;border:3px solid #24313B!important}
+  #btnKit{background:linear-gradient(#A46AEF,#7435BD)!important;color:#fff!important;border:3px solid #24313B!important}
 
   @media(max-height:560px){
     .screen:not(#scrMenu){padding:7px}
     .screen:not(#scrMenu) .card{max-height:96vh;padding:12px 14px 14px}
     .screen:not(#scrMenu) .card::before{margin:-12px -14px 9px}
     .screen:not(#scrMenu) .card h1{font-size:22px}
+  }
+
+
+  /* Galaxy Beyond UI palette — canonical */
+  :root{
+    --ui-ink:#24313B;--ui-paper:#FFFDF2;--ui-paper-green:#EAF2E1;
+    --ui-lime:#8FE51B;--ui-blue:#36A9E1;--ui-purple:#8F4FE0;
+    --ui-orange:#F3A51B;--ui-coral:#E86A5B;--ui-cyan:#4CC7D9;
+    --ui-yellow:#FFD447;--ui-danger:#EF665B;
   }
 
 </style>
@@ -559,7 +568,7 @@
         <div class="homeBtn kit" id="btnMenuKit"><span class="ico">☷</span><span>ASSETTO</span></div>
         <div class="homeBtn info" id="btnInfo"><span class="ico">?</span><span>ISTRUZIONI</span></div>
       </div>
-      <div class="homeMeta">v<span id="verTag">0.20.8</span></div>
+      <div class="homeMeta">v<span id="verTag">0.20.9</span></div>
     </div>
   </div>
 </div>
@@ -1561,7 +1570,7 @@ function pickVar(c){
   return pick(ok.length?ok:c.vars);
 }
 let meleeHit=0, meleeMiss=0, blocked=0, crashes=0, guarded=0, droneHits=0, droneMiss=0;
-const VERSION='0.20.8';
+const VERSION='0.20.9';
 const OPT={vol:0.8, music:0.6, mute:false, p25:0};
 const S={mode:'menu',t:0,score:0,kills:0,clues:0,cluesNeed:3,carrierSpawned:0,
   keys:0,pieces:0,piecesNeed:3};
