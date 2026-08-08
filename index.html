@@ -12,7 +12,7 @@
 <link rel="icon" sizes="192x192" href="icons/icon-192.png">
 <link rel="apple-touch-icon" href="icons/icon-192.png">
 <!--
-  GALAXY BEYOND  0.20.4
+  GALAXY BEYOND  0.20.5
   MAJOR: traguardo di prodotto (1.0 = demo completa, 2.0 = Unity 3D)
   MINOR: sistema nuovo   PATCH: correzioni e tarature
 -->
@@ -145,7 +145,7 @@
   #rotate h2{font-family:"Bungee",sans-serif;font-size:20px;margin:0 0 6px;}
 
   /* ================================================================
-     HOME 0.20.4 — DUE LIVELLI
+     HOME 0.20.5 — DUE LIVELLI
      Layer 1: immagine sostituibile assets/menu-bg.webp
      Layer 2: UI HTML/CSS indipendente
      ================================================================ */
@@ -174,9 +174,17 @@
     inset:0;
     z-index:1;
     pointer-events:none;
+    /* Lo sfondo temporaneo contiene ancora vecchia UI disegnata:
+       questa fascia la nasconde del tutto senza oscurare la scena a destra. */
     background:
-      linear-gradient(90deg,rgba(7,12,19,.84) 0%,rgba(7,12,19,.69) 24%,rgba(7,12,19,.16) 48%,rgba(7,12,19,.04) 100%),
-      linear-gradient(180deg,rgba(5,9,16,.20),transparent 32%,rgba(5,9,16,.26));
+      linear-gradient(90deg,
+        rgba(7,12,19,.98) 0%,
+        rgba(7,12,19,.97) 31%,
+        rgba(7,12,19,.90) 36%,
+        rgba(7,12,19,.42) 43%,
+        rgba(7,12,19,.08) 53%,
+        rgba(7,12,19,0) 66%),
+      linear-gradient(180deg,rgba(5,9,16,.10),transparent 34%,rgba(5,9,16,.12));
   }
   .homeUI{
     position:absolute;
@@ -231,9 +239,9 @@
     height:72px;
     padding:7px 10px;
     border:3px solid #0b111b;
-    border-radius:13px;
-    box-shadow:0 5px 0 #0b111b;
-    background:rgba(27,34,46,.94);
+    border-radius:8px;
+    box-shadow:0 6px 0 #0b111b;
+    background:rgba(18,24,34,.97);
     color:#fff;
     display:grid;
     place-items:center;
@@ -264,8 +272,8 @@
   .homeBtn{
     min-height:58px;
     border:4px solid #0b111b;
-    border-radius:10px;
-    box-shadow:0 6px 0 #0b111b;
+    border-radius:5px;
+    box-shadow:0 7px 0 #0b111b;
     padding:8px 16px;
     display:flex;
     align-items:center;
@@ -284,10 +292,10 @@
   }
   .homeBtn span:last-child{transform:skew(2deg);}
   .homeBtn:active{transform:skew(-2deg) translateY(4px);box-shadow:0 2px 0 #0b111b;}
-  .homeBtn.play{background:#8ECF29;color:#111;text-shadow:none;}
-  .homeBtn.shop{background:#1F2938;}
-  .homeBtn.kit{background:#263447;}
-  .homeBtn.info{background:#334357;}
+  .homeBtn.play{background:#9BE11F;color:#111;text-shadow:none;}
+  .homeBtn.shop,.homeBtn.kit,.homeBtn.info{background:rgba(19,24,32,.97);}
+  .homeBtn.play{border-color:#0b111b;}
+  .homeBtn.shop,.homeBtn.kit,.homeBtn.info{border-color:#05080d;}
   .homeMeta{
     pointer-events:none;
     align-self:flex-end;
@@ -359,7 +367,7 @@
         <div class="homeBtn kit" id="btnMenuKit"><span class="ico">☷</span><span>ASSETTO</span></div>
         <div class="homeBtn info" id="btnInfo"><span class="ico">?</span><span>ISTRUZIONI</span></div>
       </div>
-      <div class="homeMeta">v<span id="verTag">0.20.4</span></div>
+      <div class="homeMeta">v<span id="verTag">0.20.5</span></div>
     </div>
   </div>
 </div>
@@ -1361,7 +1369,7 @@ function pickVar(c){
   return pick(ok.length?ok:c.vars);
 }
 let meleeHit=0, meleeMiss=0, blocked=0, crashes=0, guarded=0, droneHits=0, droneMiss=0;
-const VERSION='0.20.4';
+const VERSION='0.20.5';
 const OPT={vol:0.8, music:0.6, mute:false, p25:0};
 const S={mode:'menu',t:0,score:0,kills:0,clues:0,cluesNeed:3,carrierSpawned:0,
   keys:0,pieces:0,piecesNeed:3};

@@ -1,4 +1,4 @@
-const CACHE='galaxy-beyond-0.20.4';
+const CACHE='galaxy-beyond-0.20.5';
 const SHELL=['./','./index.html','./manifest.webmanifest','./icons/icon-192.png','./icons/icon-512.png','./assets/menu-bg.webp'];
 self.addEventListener('install',event=>{
   event.waitUntil(caches.open(CACHE).then(c=>c.addAll(SHELL)).then(()=>self.skipWaiting()));
