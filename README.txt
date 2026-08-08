@@ -1,12 +1,12 @@
-GALAXY BEYOND 0.20.2 — PWA BUILD
+GALAXY BEYOND 0.20.3 — PWA BUILD
 
 CONTENUTO
-- index.html              gioco 0.20.2
+- index.html              gioco 0.20.3
 - manifest.webmanifest    installazione come web app
 - sw.js                   cache offline / aggiornamento
 - icons/                  icone 192 e 512 px
 
-MODIFICHE 0.20.2
+MODIFICHE 0.20.3
 - autosalvataggio meta-progressione e impostazioni in localStorage
 - codice manuale di salvataggio mantenuto come backup/trasferimento
 - fix CSS: aggiunta variabile --lime usata dagli stati selezionati
