@@ -1,4 +1,4 @@
-const CACHE='galaxy-beyond-0.20.9';
+const CACHE='galaxy-beyond-0.22.9';
 const FILES=['./','./index.html','./manifest.webmanifest','./assets/menu-bg.webp','./icons/alien-192.png','./icons/alien-512.png'];
 self.addEventListener('install',e=>{self.skipWaiting();e.waitUntil(caches.open(CACHE).then(c=>c.addAll(FILES)))});
 self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(k=>Promise.all(k.filter(x=>x!==CACHE).map(x=>caches.delete(x)))).then(()=>self.clients.claim()))});
